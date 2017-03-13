@@ -1,0 +1,4 @@
+---
+- hosts: all
+  roles:
+    - roles_under_test
