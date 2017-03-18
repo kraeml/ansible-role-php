@@ -47,3 +47,15 @@
     owner: www-data
     group: www-data
   when: ansible_distribution_version == "14.04" or ansible_distribution_version == "12.04"
+
+- name: Activate php
+  blockinfile:
+    content: |
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+                # With php7.0-fpm:
+                fastcgi_pass unix:/run/php/php7.0-fpm.sock;
+              }
+    dest: /etc/nginx/sites-available/default
+    insertafter: "pass the PHP scripts to FastCGI server"
+  notify: restart nginx
