@@ -1,33 +1,17 @@
 ---
 # tasks file for php
-- name: Install php software
-  apt:
-    name: "{{item}}"
-    update_cache: yes
-    cache_valid_time: 3600
-  with_items:
-    - php
-    - php-mysql
-    - php-curl
-    - php-gd
-    - mysql-client
-    - php-mbstring
-    - php-xml
-    - php-xmlrpc
+- include_vars: xenial.yml
   when: ansible_distribution_version == "16.04"
 
+- include_vars: trusty.yml
+  when: ansible_distribution_version == "14.04"
+  
 - name: Install php software
   apt:
     name: "{{item}}"
     update_cache: yes
     cache_valid_time: 3600
-  with_items:
-    - php5
-    - php5-mysql
-    - php5-curl
-    - php5-gd
-    - mysql-client
-  when: ansible_distribution_version == "14.04" or ansible_distribution_version == "12.04"
+  with_items: "{{php_packages}}"
 
 - name: PHP info
   copy:

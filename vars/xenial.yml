@@ -1,0 +1,9 @@
+php_packages:
+  - php
+  - php-mysql
+  - php-curl
+  - php-gd
+  - mysql-client
+  - php-mbstring
+  - php-xml
+  - php-xmlrpc
