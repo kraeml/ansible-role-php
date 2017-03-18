@@ -28,7 +28,6 @@
     - php5-curl
     - php5-gd
     - mysql-client
-    - php-mbstring
     - php5-xml
     - php5-xmlrpc
     - curl
