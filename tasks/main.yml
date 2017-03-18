@@ -14,7 +14,7 @@
     - php-mbstring
     - php-xml
     - php-xmlrpc
-  when: ansible_distribution_version == 16.04
+  when: ansible_distribution_version == "16.04"
 
 - name: Install php software
   apt:
@@ -30,7 +30,7 @@
     - php5-mbstring
     - php5-xml
     - php5-xmlrpc
-  when: ansible_distribution_version == 14.04 or ansible_distribution_version == 12.04
+  when: ansible_distribution_version == "14.04" or ansible_distribution_version == "12.04"
 
 - name: PHP info
   copy:
@@ -38,7 +38,7 @@
     dest: /var/www/html/php-info.php
     owner: www-data
     group: www-data
-  when: ansible_distribution_version == 16.04
+  when: ansible_distribution_version == "16.04"
 
 - name: PHP info
   copy:
@@ -46,4 +46,4 @@
     dest: /var/www/php-info.php
     owner: www-data
     group: www-data
-  when: ansible_distribution_version == 14.04 or ansible_distribution_version == 12.04
+  when: ansible_distribution_version == "14.04" or ansible_distribution_version == "12.04"
