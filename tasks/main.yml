@@ -14,7 +14,6 @@
     - php-mbstring
     - php-xml
     - php-xmlrpc
-    - curl
   when: ansible_distribution_version == "16.04"
 
 - name: Install php software
@@ -28,9 +27,6 @@
     - php5-curl
     - php5-gd
     - mysql-client
-    #- php-xml
-    #- php-xmlrpc
-    - curl
   when: ansible_distribution_version == "14.04" or ansible_distribution_version == "12.04"
 
 - name: PHP info
