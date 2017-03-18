@@ -4,4 +4,5 @@ php_packages:
   - php5-curl
   - php5-gd
   - mysql-client
-when: ansible_distribution_version == "14.04"
+
+nginx_path: /var/www/php-info.php

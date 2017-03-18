@@ -4,8 +4,8 @@
   when: ansible_distribution_version == "16.04"
 
 - include_vars: trusty.yml
-  when: ansible_distribution_version == "14.04"
-  
+  when: ansible_distribution_version == "14.04" or ansible_distribution_version == "12.04"
+
 - name: Install php software
   apt:
     name: "{{item}}"
@@ -16,27 +16,6 @@
 - name: PHP info
   copy:
     src: php-info.php
-    dest: /var/www/html/php-info.php
+    dest: "{{nginx_path}}"
     owner: www-data
     group: www-data
-  when: ansible_distribution_version == "16.04"
-
-- name: PHP info
-  copy:
-    src: php-info.php
-    dest: /var/www/php-info.php
-    owner: www-data
-    group: www-data
-  when: ansible_distribution_version == "14.04" or ansible_distribution_version == "12.04"
-
-- name: Activate php
-  blockinfile:
-    content: |
-        location ~ \.php$ {
-                include snippets/fastcgi-php.conf;
-                # With php7.0-fpm:
-                fastcgi_pass unix:/run/php/php7.0-fpm.sock;
-              }
-    dest: /etc/nginx/sites-available/default
-    insertafter: "pass the PHP scripts to FastCGI server"
-  notify: reload nginx
