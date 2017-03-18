@@ -38,6 +38,7 @@
     dest: /var/www/html/php-info.php
     owner: www-data
     group: www-data
+  when: ansible_distribution_version == 16.04
 
 - name: PHP info
   copy:
