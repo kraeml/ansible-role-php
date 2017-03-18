@@ -38,3 +38,11 @@
     dest: /var/www/html/php-info.php
     owner: www-data
     group: www-data
+
+- name: PHP info
+  copy:
+    src: php-info.php
+    dest: /var/www/php-info.php
+    owner: www-data
+    group: www-data
+  when: ansible_distribution_version == 14.04 or ansible_distribution_version == 12.04
