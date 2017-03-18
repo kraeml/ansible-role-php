@@ -1,0 +1,23 @@
+---
+# tasks file for php
+- name: Install php software
+  apt:
+    name: "{{item}}"
+    update_cache: yes
+    cache_valid_time: 3600
+  with_items:
+    - php
+    - php-mysql
+    - php-curl
+    - php-gd
+    - mysql-client
+    - php-mbstring
+    - php-xml
+    - php-xmlrpc
+
+- name: PHP info
+  copy:
+    src: php-info.php
+    dest: /var/www/html/php-info.php
+    owner: www-data
+    group: www-data
