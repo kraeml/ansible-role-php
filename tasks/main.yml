@@ -28,7 +28,7 @@
     - php5-curl
     - php5-gd
     - mysql-client
-    - php5-mbstring
+    - php-mbstring
     - php5-xml
     - php5-xmlrpc
     - curl
@@ -60,4 +60,4 @@
               }
     dest: /etc/nginx/sites-available/default
     insertafter: "pass the PHP scripts to FastCGI server"
-  notify: restart nginx
+  notify: reload nginx
