@@ -43,7 +43,8 @@ script:
     || (echo 'Idempotence test: fail' && exit 1)
 
   # Check if wordpress is running.
-  # TODO
+  - 'docker exec "$(cat ${container_id})" curl localhost'
+
 
 notifications:
 webhooks: https://galaxy.ansible.com/api/v1/notifications/
