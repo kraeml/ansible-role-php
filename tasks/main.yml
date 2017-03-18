@@ -19,3 +19,6 @@
     dest: "{{nginx_path}}"
     owner: www-data
     group: www-data
+
+#ToDo PHP Activation in nginx
+#Changed in 14.04 and higher
