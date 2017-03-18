@@ -43,7 +43,7 @@ script:
     || (echo 'Idempotence test: fail' && exit 1)
 
   # Check if wordpress is running.
-  - 'docker exec "$(cat ${container_id})" curl localhost'
+  - 'docker exec "$(cat ${container_id})" curl localhost/php-info.php | grep "PHP Version"'
 
 
 notifications:
