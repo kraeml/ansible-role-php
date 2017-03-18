@@ -16,7 +16,7 @@ env:
   - distro: ubuntu1204
     init: /sbin/init
     run_opts: ""
-    php_version: 5.3.10
+    php_version: 7.1.3
 
 before_install:
   # Pull container.

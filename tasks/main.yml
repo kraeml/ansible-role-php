@@ -4,7 +4,10 @@
   when: ansible_distribution_version == "16.04"
 
 - include_vars: trusty.yml
-  when: ansible_distribution_version == "14.04" or ansible_distribution_version == "12.04"
+  when: ansible_distribution_version == "14.04"
+
+- include_vars: precise.yml
+  when: ansible_distribution_version == "12.04"
 
 - include: php7_ppa.yml
   when: ansible_distribution_version == "14.04" or ansible_distribution_version == "12.04"
