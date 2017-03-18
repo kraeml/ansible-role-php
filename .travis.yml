@@ -8,6 +8,7 @@ env:
   - distro: ubuntu1604
     init: /lib/systemd/systemd
     run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
+    php_version: 7.0.13
   - distro: ubuntu1404
     init: /sbin/init
     run_opts: ""
@@ -43,9 +44,12 @@ script:
     && (echo 'Idempotence test: pass' && exit 0)
     || (echo 'Idempotence test: fail' && exit 1)
 
-  # Check if wordpress is running.
-  - 'docker exec "$(cat ${container_id})" /usr/bin/curl localhost/php-info.php'
+  # Ensure PHP is installed and at the right version.
+  - 'docker exec --tty "$(cat ${container_id})" env TERM=xterm which php'
+  - 'docker exec --tty "$(cat ${container_id})" env TERM=xterm test -x /usr/bin/php'
 
+  - 'docker exec --tty "$(cat ${container_id})" env TERM=xterm php --version'
+  - 'docker exec --tty "$(cat ${container_id})" env TERM=xterm /usr/bin/php --version | grep -qF "PHP ${php_version}"'
 
 notifications:
 webhooks: https://galaxy.ansible.com/api/v1/notifications/
