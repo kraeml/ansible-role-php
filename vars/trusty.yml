@@ -1,8 +1,1 @@
-php_packages:
-  - php5
-  - php5-mysql
-  - php5-curl
-  - php5-gd
-  - mysql-client
-
 nginx_path: /var/www/php-info.php

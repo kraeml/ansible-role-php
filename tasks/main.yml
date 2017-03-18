@@ -6,6 +6,9 @@
 - include_vars: trusty.yml
   when: ansible_distribution_version == "14.04" or ansible_distribution_version == "12.04"
 
+- include: php7_ppa.yml
+  when: ansible_distribution_version == "14.04" or ansible_distribution_version == "12.04"
+
 - name: Install php software
   apt:
     name: "{{item}}"

@@ -1,10 +1,13 @@
 ---
 # defaults file for php
 php_packages:
-  - php5
-  - php5-mysql
-  - php5-curl
-  - php5-gd
+  - php
+  - php-mysql
+  - php-curl
+  - php-gd
   - mysql-client
+  - php-mbstring
+  - php-xml
+  - php-xmlrpc
 
 nginx_path: /var/www/php-info.php

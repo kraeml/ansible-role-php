@@ -1,0 +1,4 @@
+---
+- name: PPA for php7
+  apt_repository:
+    repo: 'ppa:ondrej/php'
